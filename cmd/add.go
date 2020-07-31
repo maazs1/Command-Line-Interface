@@ -3,6 +3,7 @@ package cmd
 
 import (
 	"fmt"
+	"strconv"
 	"github.com/spf13/cobra"
 )
 
@@ -17,8 +18,22 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("add called")
+		addInt(args)
 	},
+}
+
+func addInt (args []string) {
+	var sumVal int
+
+	for _, ival := range args {
+		itemp, err := strconv.Atoi(ival)
+       
+    	if err != nil {
+           	fmt.Println(err)
+       	}
+       	sumVal = sumVal + itemp
+	}
+	fmt.Printf("Addition of numbers %s is %d", args, sumVal)
 }
 
 func init() {
