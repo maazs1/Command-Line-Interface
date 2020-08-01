@@ -7,9 +7,9 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// divisionCmd represents the division command
-var divisionCmd = &cobra.Command{
-	Use:   "division",
+// subtractCmd represents the subtract command
+var subtractCmd = &cobra.Command{
+	Use:   "subtract",
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
@@ -20,14 +20,14 @@ to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		status, _ := cmd.Flags().GetBool("float")
 		if status {
-			divisionFloat(args)
+			subtractFloat(args)
 		}else{
-			divisionInt(args)
+			subtractInt(args)
 		}
 	},
 }
 
-func divisionInt (args []string) {
+func subtractInt (args []string) {
 	var sumVal int 
 	var flag int =1
 
@@ -41,14 +41,14 @@ func divisionInt (args []string) {
 			sumVal =temp
 			flag=2
 		}else{
-			sumVal = sumVal / temp
+			sumVal = sumVal - temp
 		}
 		
 	}
-	fmt.Printf("Division of numbers %s is %d", args, sumVal)
+	fmt.Printf("Subtraction of numbers %s is %d", args, sumVal)
 }
 
-func divisionFloat (args []string) {
+func subtractFloat (args []string) {
 	var sumVal float64 
 	var flag int =1
 
@@ -62,22 +62,23 @@ func divisionFloat (args []string) {
 			sumVal =temp
 			flag=2
 		}else{
-			sumVal = sumVal / temp
+			sumVal = sumVal - temp
 		}
 	}
-	fmt.Printf("Division of numbers %s is %f", args, sumVal)
+	fmt.Printf("Subtraction of numbers %s is %f", args, sumVal)
 }
 
 func init() {
-	rootCmd.AddCommand(divisionCmd)
-	divisionCmd.Flags().BoolP("float", "f", false, "Dividing Floating Numbers")
+	rootCmd.AddCommand(subtractCmd)
+	subtractCmd.Flags().BoolP("float", "f", false, "Subtracting Floating Numbers")
+
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// divisionCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// subtractCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// divisionCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// subtractCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
