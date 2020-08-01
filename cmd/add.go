@@ -43,7 +43,7 @@ func addInt (args []string) {
 }
 
 func addFloat (args []string) {
-	var sumVal float64
+	var sum float64
 
 	for _, val := range args {
 		temp, err :=strconv.ParseFloat(val,64)
@@ -51,9 +51,9 @@ func addFloat (args []string) {
 		if err != nil {
 			fmt.Println(err)
 		}
-		sumVal = sumVal +temp
+		sum = sum +temp
 	}
-	fmt.Printf("Addition of numbers %s is %f", args, sumVal)
+	fmt.Printf("Addition of numbers %s is %f", args, sum)
 }
 
 func init() {
