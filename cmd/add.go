@@ -10,8 +10,7 @@ import (
 // addCmd represents the add command
 var addCmd = &cobra.Command{
 	Use:   "add",
-	Short: "Add numbers",
-	Long: `Adds float and integers together`,
+	Short: "Adds float or integers",
 	Run: func(cmd *cobra.Command, args []string) {
 		status, _ := cmd.Flags().GetBool("float")
 		if status {

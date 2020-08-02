@@ -10,8 +10,7 @@ import (
 // ConcatenateStringsCmd represents the ConcatenateStrings command
 var ConcatenateStringsCmd = &cobra.Command{
 	Use:   "ConcatenateStrings",
-	Short: "Concatenates Strings",
-	Long: `Concatenates string together seperated by space`,
+	Short: "Concatenates items together seperated by a space",
 	Run: func(cmd *cobra.Command, args []string) {
 		concatenate(args)
 	},
