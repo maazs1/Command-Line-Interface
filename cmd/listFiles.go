@@ -10,7 +10,7 @@ import (
 // listFilesCmd represents the listFiles command
 var listFilesCmd = &cobra.Command{
 	Use:   "listFiles",
-	Short: "Listing Files in a Folder",
+	Short: "Listing all Files in the current Folder/Directory",
 
 	Run: func(cmd *cobra.Command, args []string) {
 		listFiles()
