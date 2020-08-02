@@ -1,4 +1,3 @@
-
 package cmd
 
 import (
@@ -19,21 +18,18 @@ var parseCmd = &cobra.Command{
 
 func parseString(args []string){
 	line := args[0]
-	delimeter := args[1]
-	s := strings.Split(line, delimeter)
-	fmt.Printf("Parsing of %s is %s", args, s)
+	delimiter := args[1]
+	if (delimiter==" "){
+		s := strings.Split(line, " ")
+		fmt.Printf("Parsing of %s is %s", args, s)
+	}else{
+		s := strings.Split(line, delimiter)
+		fmt.Printf("Parsing of %s is %s", args, s)
+	}
+	
+	
 }
 
 func init() {
 	rootCmd.AddCommand(parseCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// parseCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// parseCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
